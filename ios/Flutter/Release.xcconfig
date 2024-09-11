@@ -1,0 +1,3 @@
+#include "Generated.xcconfig"
+bundle_suffix=
+app_display_name=wilde-buren
