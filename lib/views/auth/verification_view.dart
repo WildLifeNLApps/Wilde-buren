@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:wilde_buren/config/app_config.dart';
 import 'package:wilde_buren/config/theme/custom_colors.dart';
-import 'package:wilde_buren/views/home/home_view.dart';
+import 'package:wilde_buren/views/onboarding/onboarding_view.dart';
 import 'package:wilde_buren/widgets/custom_scaffold.dart';
 import 'package:wildlife_api_connection/auth_api.dart';
 import 'package:wildlife_api_connection/models/user.dart';
@@ -34,7 +34,7 @@ class _VerificationViewState extends State<VerificationView> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomeView(),
+          builder: (context) => const OnboardingView(),
         ),
       );
     } catch (e) {
