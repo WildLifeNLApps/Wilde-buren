@@ -3,7 +3,6 @@ import 'package:wilde_buren/config/app_config.dart';
 import 'package:wilde_buren/config/theme/custom_theme.dart';
 import 'package:wilde_buren/views/auth/verification_view.dart';
 import 'package:wilde_buren/widgets/custom_scaffold.dart';
-import 'package:wildlife_api_connection/api_client.dart';
 import 'package:wildlife_api_connection/auth_api.dart';
 
 class LoginView extends StatefulWidget {
@@ -25,8 +24,7 @@ class _LoginViewState extends State<LoginView> {
     if (_formKey.currentState!.validate()) {
       final email = _emailController.text;
 
-      AuthApi(ApiClient(AppConfig.shared.baseUrl))
-          .authenticate('Wilde buren', email);
+      AuthApi(AppConfig.shared.apiClient).authenticate('Wilde buren', email);
 
       Navigator.push(
         context,

@@ -4,7 +4,6 @@ import 'package:wilde_buren/config/app_config.dart';
 import 'package:wilde_buren/config/theme/custom_colors.dart';
 import 'package:wilde_buren/views/home/home_view.dart';
 import 'package:wilde_buren/widgets/custom_scaffold.dart';
-import 'package:wildlife_api_connection/api_client.dart';
 import 'package:wildlife_api_connection/auth_api.dart';
 import 'package:wildlife_api_connection/models/user.dart';
 
@@ -28,7 +27,7 @@ class _VerificationViewState extends State<VerificationView> {
 
   void checkVerificationCode() async {
     try {
-      User user = await AuthApi(ApiClient(AppConfig.shared.baseUrl))
+      User user = await AuthApi(AppConfig.shared.apiClient)
           .authorize(widget.email, _verificationCodeController.text);
       debugPrint(user.name);
       if (!mounted) return;
