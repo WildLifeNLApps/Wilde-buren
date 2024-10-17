@@ -131,6 +131,10 @@ class SizeSetter {
     return _getValueByScreenSize(xs: 65, sm: 95, md: 95, xl: 95);
   }
 
+  static double getOnboardingTopSpacing() {
+    return _getValueByScreenSize(xs: 75, sm: 125, md: 200, xl: 275);
+  }
+
   // Sets horizontal padding based on screen size
   static double getHorizontalScreenPadding(
       {size = HorizontalScreenPadding.regular}) {
