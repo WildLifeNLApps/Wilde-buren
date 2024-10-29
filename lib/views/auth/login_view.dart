@@ -24,7 +24,8 @@ class _LoginViewState extends State<LoginView> {
     if (_formKey.currentState!.validate()) {
       final email = _emailController.text;
 
-      AuthApi(AppConfig.shared.apiClient).authenticate('Wilde buren', email);
+      AuthApi(AppConfig.shared.apiClient)
+          .authenticate(AppConfig.shared.displayNameApp, email);
 
       Navigator.push(
         context,

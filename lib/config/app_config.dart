@@ -14,6 +14,7 @@ Flavor getFlavorByPackageName(String packageName) {
 class AppConfig {
   ApiClient apiClient = ApiClient('');
   Flavor flavor = Flavor.production;
+  String displayNameApp = 'Wilde Buren';
 
   static AppConfig shared = AppConfig.create();
 
@@ -23,14 +24,16 @@ class AppConfig {
         return shared = AppConfig(
           flavor,
           ApiClient(dotenv.get('DEV_BASE_URL')),
+          'Wilde Buren - Development',
         );
       case Flavor.production:
         return shared = AppConfig(
           flavor,
           ApiClient(dotenv.get('PROD_BASE_URL')),
+          'Wilde Buren',
         );
     }
   }
 
-  AppConfig(this.flavor, this.apiClient);
+  AppConfig(this.flavor, this.apiClient, this.displayNameApp);
 }
