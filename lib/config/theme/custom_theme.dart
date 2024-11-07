@@ -127,6 +127,25 @@ class CustomTheme {
           color: CustomColors.dark,
         ),
       ),
+      tabBarTheme: TabBarTheme(
+        indicatorColor: CustomColors.light100,
+        labelColor: CustomColors.light100,
+        unselectedLabelColor: CustomColors.light,
+        labelPadding: const EdgeInsets.all(0),
+        indicatorSize: TabBarIndicatorSize.label,
+        labelStyle: TextStyle(
+          fontSize: SizeSetter.getBodySmallSize(),
+          fontFamily: fontFamily,
+          fontWeight: FontWeight.w700,
+          color: CustomColors.dark,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: SizeSetter.getBodySmallSize(),
+          fontFamily: fontFamily,
+          fontWeight: FontWeight.w400,
+          color: CustomColors.dark,
+        ),
+      ),
     );
   }
 }

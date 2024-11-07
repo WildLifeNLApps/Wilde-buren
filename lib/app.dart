@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wilde_buren/config/theme/custom_theme.dart';
+import 'package:wilde_buren/utils/key_provider.dart';
 import 'package:wilde_buren/views/auth/login_view.dart';
 import 'package:wilde_buren/views/home/home_view.dart';
 
@@ -14,12 +16,16 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: CustomTheme(context).themeData,
-      title: 'Wilde Buren',
-      debugShowCheckedModeBanner: false,
-      home: const Initializer(),
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => KeyProvider()),
+        ],
+        child: MaterialApp(
+          theme: CustomTheme(context).themeData,
+          title: 'Wilde Buren',
+          debugShowCheckedModeBanner: false,
+          home: const Initializer(),
+        ));
   }
 }
 

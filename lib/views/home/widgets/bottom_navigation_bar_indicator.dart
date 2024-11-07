@@ -19,9 +19,9 @@ class BottomNavigationBarIndicator extends StatelessWidget {
       duration: animationDuration,
       curve: Curves.easeInOut,
       top: 0,
-      left: selectedIndex * MediaQuery.of(context).size.width / 4,
+      left: selectedIndex * MediaQuery.of(context).size.width / 5,
       child: Container(
-        width: MediaQuery.of(context).size.width / 4,
+        width: MediaQuery.of(context).size.width / 5,
         alignment: Alignment.center,
         child: ClipRRect(
           borderRadius: const BorderRadius.only(
@@ -29,7 +29,7 @@ class BottomNavigationBarIndicator extends StatelessWidget {
             bottomRight: Radius.circular(10),
           ),
           child: Container(
-            color: CustomColors.secondary,
+            color: CustomColors.light100,
             width: 60,
             height: 3,
           ),

@@ -56,9 +56,10 @@ class _OnboardingViewState extends State<OnboardingView> {
     }
 
     if (!mounted) return;
-    Navigator.pushReplacement(
+    Navigator.pushAndRemoveUntil(
       context,
       FadeRoute(const HomeView()),
+      (route) => false,
     );
   }
 
@@ -87,10 +88,13 @@ class _OnboardingViewState extends State<OnboardingView> {
             centerTitle: true,
             systemOverlayStyle: SystemUiOverlayStyle.dark,
             backgroundColor: Colors.transparent,
-            // title: Text(
-            //   '${currentPage + 1} / ${pages.length}',
-            //   style: Theme.of(context).textTheme.titleMedium?.copyWith(color: CustomColors.dark500),
-            // ),
+            title: Text(
+              '${currentPage + 1} / ${pages.length}',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(color: CustomColors.dark500),
+            ),
             elevation: 0,
             leading: currentPage > 0
                 ? IconButton(

@@ -8,4 +8,5 @@ class AssetIcons {
   static const location = '$_path/location.svg';
   static const chevronLeft = '$_path/chevron-left.svg';
   static const chevronRight = '$_path/chevron-right.svg';
+  static const plus = '$_path/plus.svg';
 }

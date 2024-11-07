@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:wilde_buren/config/theme/asset_icons.dart';
 import 'package:wilde_buren/config/theme/custom_colors.dart';
 import 'package:wilde_buren/config/theme/custom_theme.dart';
 import 'package:wilde_buren/config/theme/size_setter.dart';
+import 'package:wilde_buren/utils/key_provider.dart';
+import 'package:wilde_buren/views/feed/feed_view.dart';
 import 'package:wilde_buren/views/home/widgets/bottom_navigation_bar_indicator.dart';
 import 'package:wilde_buren/views/interaction/interaction_view.dart';
 import 'package:wilde_buren/views/map/map_view.dart';
@@ -36,8 +39,9 @@ class _HomeViewState extends State<HomeView> {
           IndexedStack(
             index: selectedIndex,
             children: const [
-              InteractionView(),
+              FeedView(),
               MapView(),
+              InteractionView(),
               SpeciesView(),
               ProfileView(),
             ],
@@ -55,7 +59,8 @@ class _HomeViewState extends State<HomeView> {
               child: BottomNavigationBar(
                 items: [
                   BottomNavigationBarItem(
-                    key: const Key('home_page_button'),
+                    key: Provider.of<KeyProvider>(context)
+                        .bottomNavBarHomepageKey,
                     icon: Container(
                       padding: const EdgeInsets.only(bottom: 2, top: 5),
                       width: 27,
@@ -69,7 +74,7 @@ class _HomeViewState extends State<HomeView> {
                     label: 'homepage',
                   ),
                   BottomNavigationBarItem(
-                    key: const Key('map_view_button'),
+                    key: Provider.of<KeyProvider>(context).bottomNavBarMapKey,
                     icon: Container(
                       padding: const EdgeInsets.only(bottom: 2, top: 5),
                       width: 27,
@@ -83,7 +88,23 @@ class _HomeViewState extends State<HomeView> {
                     label: 'Map',
                   ),
                   BottomNavigationBarItem(
-                    key: const Key('species_button'),
+                    key: Provider.of<KeyProvider>(context)
+                        .bottomNavBarInteractionsKey,
+                    icon: Container(
+                      padding: const EdgeInsets.only(bottom: 2, top: 5),
+                      width: 27,
+                      height: 24,
+                      child: SvgPicture.asset(AssetIcons.plus,
+                          colorFilter: const ColorFilter.mode(
+                            CustomColors.light200,
+                            BlendMode.srcIn,
+                          )),
+                    ),
+                    label: 'Interacties',
+                  ),
+                  BottomNavigationBarItem(
+                    key: Provider.of<KeyProvider>(context)
+                        .bottomNavBarSpeciesKey,
                     icon: Container(
                       padding: const EdgeInsets.only(bottom: 2, top: 5),
                       width: 27,
@@ -97,7 +118,8 @@ class _HomeViewState extends State<HomeView> {
                     label: 'Dieren',
                   ),
                   BottomNavigationBarItem(
-                    key: const Key('profile_button'),
+                    key: Provider.of<KeyProvider>(context)
+                        .bottomNavBarProfileKey,
                     icon: Container(
                       padding: const EdgeInsets.only(bottom: 2, top: 5),
                       width: 27,
@@ -112,16 +134,16 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ],
                 type: BottomNavigationBarType.fixed,
-                selectedItemColor: CustomColors.secondary,
+                selectedItemColor: CustomColors.light100,
                 unselectedItemColor: CustomColors.light,
-                backgroundColor: CustomColors.dark,
-                selectedFontSize: SizeSetter.getBodySmallSize(),
-                unselectedFontSize: SizeSetter.getBodySmallSize(),
-                currentIndex: selectedIndex,
+                backgroundColor: CustomColors.primary,
                 unselectedLabelStyle:
                     CustomTheme(context).themeData.textTheme.bodySmall,
                 selectedLabelStyle:
                     CustomTheme(context).themeData.textTheme.bodySmall,
+                selectedFontSize: SizeSetter.getBodySmallSize(),
+                unselectedFontSize: SizeSetter.getBodySmallSize(),
+                currentIndex: selectedIndex,
                 onTap: onItemTapped,
               ),
             ),
