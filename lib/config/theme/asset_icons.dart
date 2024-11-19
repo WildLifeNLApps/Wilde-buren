@@ -8,4 +8,16 @@ class AssetIcons {
   static const location = '$_path/location.svg';
   static const chevronLeft = '$_path/chevron-left.svg';
   static const chevronRight = '$_path/chevron-right.svg';
+
+  static const locationDot = '$_path/location.svg';
+
+  // Interaction types
+  static const schademelding = '$_path/interaction-types/schademelding.svg';
+  static const waarneming = '$_path/interaction-types/waarneming.svg';
+  static const wildaanrijding = '$_path/interaction-types/wildaanrijding.svg';
+
+  // Animal species
+  static const evenhoevigen = '$_path/animal-species/evenhoevigen.svg';
+  static const knaagdieren = '$_path/animal-species/knaagdieren.svg';
+  static const roofdieren = '$_path/animal-species/roofdieren.svg';
 }

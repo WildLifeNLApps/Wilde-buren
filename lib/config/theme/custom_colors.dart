@@ -25,6 +25,7 @@ class CustomColors {
   static const dark500 = Color(0xFF545454);
 
   // Light Colors
+  static const light700 = Color(0xF2F2F2F2);
   static const light600 = Color(0xFFC5C5C5);
   static const light500 = Color(0xFFD8D8D8);
   static const light400 = Color(0xFFEBEBEB);

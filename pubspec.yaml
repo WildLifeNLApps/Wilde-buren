@@ -45,7 +45,12 @@ dependencies:
   wildlife_api_connection:
     git:
       url: git@github.com:WildLifeNLApps/Wildlife-api-connection.git
-      ref: "bea66b1"
+      ref: "5b2d992"
+  smooth_page_indicator: ^1.2.0+3
+  flutter_map: ^7.0.2
+  geolocator: ^12.0.0
+  permission_handler: ^11.3.1
+  latlong2: ^0.9.1
 
 
 dev_dependencies:
@@ -74,6 +79,9 @@ flutter:
   assets:
     - .env
     - assets/icons/
+    - assets/icons/interaction-types/
+    - assets/icons/animal-species/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
